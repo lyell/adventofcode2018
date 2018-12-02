@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <set>
+#include <unordered_set>
 #include <limits>
 
 int main(int argc, char** argv) {
@@ -22,7 +22,8 @@ int main(int argc, char** argv) {
 
     // PART 2 - Do the same thing as above, but keep reading frequencies
     // until the first duplicate frequency is found.
-    std::set<int> uniqueFreqs;
+    typedef std::unordered_set<int> UniqueFreqs;
+    UniqueFreqs uniqueFreqs;
     bool found = false;
 
     freq = 0;
@@ -34,7 +35,7 @@ int main(int argc, char** argv) {
 
         while (inputFile >> change) {
             freq += change;
-            std::pair<std::set<int>::iterator, bool> result = uniqueFreqs.insert(freq);
+            std::pair<UniqueFreqs::iterator, bool> result = uniqueFreqs.insert(freq);
             if (result.second == false) {
                 found = true;
                 break;
