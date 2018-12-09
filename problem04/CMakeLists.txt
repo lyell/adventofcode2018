@@ -2,7 +2,7 @@ project(problem04
     VERSION 1.0.0
     DESCRIPTION "Advent of Code Problem 03")
 
-find_package(Boost COMPONENTS date_time regex)
+find_package(Boost COMPONENTS regex)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
